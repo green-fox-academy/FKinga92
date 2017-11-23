@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 36px;
+}
+
+p {
+    color: rgb(0, 85, 102);
+    width: 347px;
+    height: 133px;
+    margin: 16px 6px;
+    padding: 16px;
+    background-color: rgb(14,145,161);
+    border: 5px solid rgb(125,206,148);
+}
+
+p:first-child {
+    margin: 5px 6px;
+}
+    
+
