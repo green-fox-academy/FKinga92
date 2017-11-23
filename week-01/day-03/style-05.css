@@ -1,0 +1,40 @@
+body {
+    margin-top: 0;
+}
+
+section {
+    width: 450px;
+}
+
+h1 {
+    color: rgb(255, 99, 71);
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: rgb(138, 43, 226);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+ul {
+    list-style-type: square;
+}
+li:nth-child(5) {
+    list-style-type: none;
+}
+
+ol {
+    list-style-type: upper-roman;
+}
+
+ol > li {
+    color: rgb(255, 0, 255);
+    text-decoration: underline; 
+    letter-spacing: 0.4px;
+}
+
+ol > li:last-child {
+    color: black;
+}
