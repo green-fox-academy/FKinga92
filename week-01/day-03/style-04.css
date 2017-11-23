@@ -1,0 +1,18 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif, serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: rgb(240, 182, 75);
+    padding: 6px 5px 30px;
+}
+
+p {
+    padding: 0 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;    
+    letter-spacing: 1px;
+}
