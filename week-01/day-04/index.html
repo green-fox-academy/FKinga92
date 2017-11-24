@@ -7,8 +7,65 @@
 </head>
 <body>
   <form>
-    <section></section>
-    <article><p></p><p></p><p></p><p></p></article><article></article>
+    <section>
+        <h1>Profil</h1>
+    </section>
+    <article>
+      <p>Személyes adatok</p>
+      <p>
+        <label for="name">Név</label>
+        <input type="text" id="name">
+      </p><p>
+        <label for="year">Születési éved</label>
+        <input type="text" id="year" name="birthyear" placeholder="pl. 1984" maxlength="4">
+      </p><p>Nemed
+        <input type="radio" id="sex" name="sex" value="nő">
+        <label for="sex">nő</label>
+        <input type="radio" id="sex" name="sex" value="férfi">
+        <label for="sex">férfi</label>
+      </p><p>Milyen márkákat szeretsz?
+        <input type="checkbox" id="brand" name="brand" value="adidas">
+        <label for="brand">Adidas</label>
+        <input type="checkbox" id="brand" name="brand" value="apple">
+        <label for="brand">Apple</label>
+        <input type="checkbox" id="brand" name="brand" value="coca">
+        <label for="brand">Coca-Cola</label>
+        <input type="checkbox" id="brand" name="brand" value="mazda">
+        <label for="brand">Mazda</label>
+        <input type="checkbox" id="brand" name="brand" value="nike">
+        <label for="brand">Nike</label>
+        <input type="checkbox" id="brand" name="brand" value="opel">
+        <label for="brand">Opel</label>
+        <input type="checkbox" id="brand" name="brand" value="rayban">
+        <label for="brand">Ray-Ban</label>
+        <input type="checkbox" id="brand" name="brand" value="starbucks">
+        <label for="brand">Starbucks</label>
+        <input type="checkbox" id="brand" name="brand" value="tesla">
+        <label for="brand">Tesla</label>
+        <input type="checkbox" id="brand" name="brand" value="yahoo">
+        <label for="brand">Yahoo</label>
+        <span>Többet is választhatsz!</span>
+      </p></article>
+    <article><p>Kapcsolat</p>
+      <p>
+        <label for="phone">Telefonszám</label>
+        <input type="tel" id="phone" name="phone" placeholder="+36 -- --- ----" maxlength="12">
+      </p><p>
+        <label for="mail">E-mail cím</label>
+        <input type="email" id="mail" name="mail" placeholder="nev@domain.hu">
+      </p><p>
+        <label for="facebook">Facebook profilod</label>
+        <input type="text" id="facebook" name="facebook" placeholder="https://www.facebook.com/...">
+      </p><p>
+        <label for="twitter">Twitter profilod</label>
+        <input type="text" id="twitter" name="twitter" placeholder="https://www.twitter.com/...">
+      </p><p>Milyen házban laksz?
+          <select name="house" id="house">
+            <option value="wgarden">Kertes</table></option> 
+            <option value="ownflat">Saját lakás</option>
+            <option value="sublet" selected>Albérlet</option>
+          </select>
+      </p></article>
     <section></section>
   </form>
 </body>
