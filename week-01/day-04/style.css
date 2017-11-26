@@ -28,6 +28,7 @@ article {
     display: inline-block;
     width: 49%;
     vertical-align: top;
+    margin-top: 9px;
 }
 
 
@@ -59,7 +60,7 @@ p:nth-child(4) {
     height: 55px;
 }
 
-select:invalid {
+select:invalid, textarea {
     color: gray;
 }
 
@@ -68,7 +69,7 @@ label {
 }
 
 h1 {
-    font-size: 18px;
+    font-size: 19px;
     font-weight: normal;
 }
 
@@ -90,16 +91,15 @@ input[type="radio"] {
 .label {
     font-weight: bold;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 7px;
     color: rgb(74, 66, 97);
 }
 
 label[for="male"], label[for="female"] {
     font-weight: normal;
-    line-height: 27px;
 }
 
-label[value="férfi"], input[value="férfi"] {
+input[id="male"] {
     margin-left: 45px;
 }
 
@@ -138,17 +138,24 @@ span {
 input[type="text"], input[type="tel"], input[type="email"], select {
     height: 38px;
     width: 100%;
+    padding-left: 5px;
 }
 
 .contact > span {
     font-weight: bold;
     color: rgb(74, 66, 97);
+    margin-bottom: 4px;
+}
+
+select {
+    margin-top: 10px;
 }
 
 textarea {
     display: block;
     width: 100%;
     height: 165px;
+    padding: 5px;
 }
 
 footer {
@@ -175,6 +182,7 @@ button {
 
 button[id="save"], button[id="delete"] {
     display: inline-block;
+    margin: 15px 0;
 }
 
 button[id="save"] {
@@ -202,4 +210,11 @@ label[for="terms"] {
 label[for="terms"] > span {
     font-weight: bold;
     text-decoration: underline; 
+}
+
+label[for="name"]::after, label[for="phone"]::after, label[for="mail"]::after, label[for="intro"]::after {
+    content: " *";
+    font-size: 8px;
+    color: red;
+    vertical-align: super;
 }
