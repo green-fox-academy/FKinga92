@@ -14,59 +14,73 @@
       <p>Személyes adatok</p>
       <p>
         <label for="name">Név</label>
-        <input type="text" id="name">
-      </p><p>
+        <input type="text" id="name"></p>
+        <p>
         <label for="year">Születési éved</label>
-        <input type="text" id="year" name="birthyear" placeholder="pl. 1984" maxlength="4">
-      </p><p>Nemed
-        <input type="radio" id="sex" name="sex" value="nő">
-        <label for="sex">nő</label>
-        <input type="radio" id="sex" name="sex" value="férfi">
-        <label for="sex">férfi</label>
-      </p><p>Milyen márkákat szeretsz?
-        <input type="checkbox" id="brand" name="brand" value="adidas">
-        <label for="brand">Adidas</label>
-        <input type="checkbox" id="brand" name="brand" value="apple">
-        <label for="brand">Apple</label>
-        <input type="checkbox" id="brand" name="brand" value="coca">
-        <label for="brand">Coca-Cola</label>
-        <input type="checkbox" id="brand" name="brand" value="mazda">
-        <label for="brand">Mazda</label>
-        <input type="checkbox" id="brand" name="brand" value="nike">
-        <label for="brand">Nike</label>
-        <input type="checkbox" id="brand" name="brand" value="opel">
-        <label for="brand">Opel</label>
-        <input type="checkbox" id="brand" name="brand" value="rayban">
-        <label for="brand">Ray-Ban</label>
-        <input type="checkbox" id="brand" name="brand" value="starbucks">
-        <label for="brand">Starbucks</label>
-        <input type="checkbox" id="brand" name="brand" value="tesla">
-        <label for="brand">Tesla</label>
-        <input type="checkbox" id="brand" name="brand" value="yahoo">
-        <label for="brand">Yahoo</label>
-        <span>Többet is választhatsz!</span>
-      </p></article>
-    <article><p>Kapcsolat</p>
+        <input type="text" id="year" name="birthyear" placeholder="pl. 1984" maxlength="4"></p>
       <p>
-        <label for="phone">Telefonszám</label>
-        <input type="tel" id="phone" name="phone" placeholder="+36 -- --- ----" maxlength="12">
-      </p><p>
-        <label for="mail">E-mail cím</label>
-        <input type="email" id="mail" name="mail" placeholder="nev@domain.hu">
-      </p><p>
-        <label for="facebook">Facebook profilod</label>
-        <input type="text" id="facebook" name="facebook" placeholder="https://www.facebook.com/...">
-      </p><p>
-        <label for="twitter">Twitter profilod</label>
-        <input type="text" id="twitter" name="twitter" placeholder="https://www.twitter.com/...">
-      </p><p>Milyen házban laksz?
-          <select name="house" id="house">
-            <option value="wgarden">Kertes</table></option> 
-            <option value="ownflat">Saját lakás</option>
-            <option value="sublet" selected>Albérlet</option>
-          </select>
-      </p></article>
-    <section></section>
+        <span class="label">Nemed</span>
+        <input type="radio" id="female" name="gender" value="nő">
+        <label for="female">nő</label>
+        <input type="radio" id="male" name="gender" value="férfi">
+        <label for="male">férfi</label></p>
+        <span class="label">Milyen márkákat szeretsz?</span>
+        <section class="firstcol">
+          <input type="checkbox" id="adidas" name="brand" value="adidas">
+          <label for="adidas">Adidas</label><br>
+          <input type="checkbox" id="apple" name="brand" value="apple">
+          <label for="apple">Apple</label><br>
+          <input type="checkbox" id="coca" name="brand" value="coca">
+          <label for="coca">Coca-Cola</label><br>
+          <input type="checkbox" id="mazda" name="brand" value="mazda">
+          <label for="mazda">Mazda</label><br>
+          <input type="checkbox" id="nike" name="brand" value="nike">
+          <label for="nike">Nike</label></section>
+        <section class="secondcol">
+          <input type="checkbox" id="opel" name="brand" value="opel">
+          <label for="opel">Opel</label><br>
+          <input type="checkbox" id="rayban" name="brand" value="rayban">
+          <label for="rayban">Ray-Ban</label><br>
+          <input type="checkbox" id="starbucks" name="brand" value="starbucks">
+          <label for="starbucks">Starbucks</label><br>
+          <input type="checkbox" id="tesla" name="brand" value="tesla">
+          <label for="tesla">Tesla</label><br>
+          <input type="checkbox" id="yahoo" name="brand" value="yahoo">
+          <label for="yahoo">Yahoo</label></section>
+        <span>Többet is választhatsz!</span>
+    </article>
+    <article class="contact">
+      <p>Kapcsolat</p>
+      <label for="phone">Telefonszám</label>
+      <input type="tel" id="phone" name="phone" placeholder="+36 -- --- ----" maxlength="12">
+      <label for="mail">E-mail cím</label>
+      <input type="email" id="mail" name="mail" placeholder="nev@domain.hu">
+      <label for="facebook">Facebook profilod</label>
+      <input type="text" id="facebook" name="facebook" placeholder="https://www.facebook.com/...">
+      <label for="twitter">Twitter profilod</label>
+      <input type="text" id="twitter" name="twitter" placeholder="https://www.twitter.com/...">
+      <span>Milyen házban laksz?</span>
+      <select required name="house" id="house">
+        <option value="" disabled selected hidden>Válassz típust!</option>
+        <option value="wgarden">Kertes</table></option> 
+        <option value="ownflat">Saját lakás</option>
+        <option value="sublet">Albérlet</option>
+      </select> 
+    </article>
+    <section>
+      <span>
+        <label for="intro">Bemutatkozás</label>
+        <textarea name="intro" id="intro">Írj magadról pár mondatot!</textarea>
+      </span>
+    </section>
+    <footer>
+      <label for="file">CV feltöltése</label>
+      <button type="button" id="file">file kiválasztása</button>
+      <input type="checkbox" id="terms" name="terms" value="accept">
+      <label for="terms">Elfogadom a <span>felhasználási feltételeket</span></label><br>
+      <button type="submit" id="save">mentés</button> 
+      <button type="reset" id="delete">Űrlap törlése</button>
+    </footer>
   </form>
 </body>
 </html>
