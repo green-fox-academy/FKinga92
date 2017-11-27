@@ -13,7 +13,7 @@ while (n-x) != 0:
     if n > x:
         print("The stored number is higher.")
     elif n < x:
-        print ("The stored number is lower.")
+        print("The stored number is lower.")
     else:
         print("You found the number: 8")
         break
