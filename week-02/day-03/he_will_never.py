@@ -18,5 +18,5 @@ hashmap = {
 
 for i in not_so_cryptic_message:
     number_key = str(i)
-    out = out + hashmap[i]
+    out = out + " " + hashmap[i]
 print(out)
