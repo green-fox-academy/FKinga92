@@ -15,10 +15,12 @@ students = [
 
 def candies(*args):
     list1 = [*args]
+    sum_of_candies = 0
     for i in list1:
         student = str(i)
         student_index = next(index for (index, d) in enumerate(students) if d["name"] == student)
-        print(student + " has " + str(students[student_index]['candies']) + " candies.")
+        sum_of_candies += students[student_index]['candies']
+    print("The students have " + str(sum_of_candies) + " candies.")
 
 
 def sum_of_ages(*args):
