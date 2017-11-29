@@ -2,5 +2,6 @@
 # Also, the URL is missing a crutial component, find out what it is and insert it too!
 
 url = "https//www.reddit.com/r/nevertellmethebots"
-url = url.replace("bots", "odds/")
+url = url.replace("bots", "odds")
+url = url.replace("https", "https:")
 print(url)
