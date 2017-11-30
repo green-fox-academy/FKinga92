@@ -17,3 +17,13 @@ def unique_sort(alist):
                     alist.remove(alist[i])
     return alist
 
+#sokkal egyszerűbben:
+# def unique(*list_of_numbers):
+#    output=[]
+
+#    for i in list_of_numbers:
+#        if i not in output:
+#            output.append(i)
+#    print(output)
+
+# unique(1, 11, 34, 11, 52, 61, 1, 34)
