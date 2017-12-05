@@ -3,8 +3,9 @@
 # If the program is unable to write the file,
 # then it should print an error message like: "Unable to write file: my-file.txt"
 
-f = open("my-file.txt", "w")
+
 try:
+    f = open("my-file.txt", "w")
     f.write("Kinga")
     f.close()
 except:
