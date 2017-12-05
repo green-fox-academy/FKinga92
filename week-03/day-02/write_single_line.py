@@ -6,5 +6,6 @@
 f = open("my-file.txt", "w")
 try:
     f.write("Kinga")
+    f.close()
 except:
     print("Unable to write file: my-file.txt")
