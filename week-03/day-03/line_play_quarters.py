@@ -11,10 +11,10 @@ canvas.pack()
 # and repeat this pattern in each quarter:
 # [https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/drawing/line-play/r1.png]
 
-def quarter(x, y, x1, y1):
+def quarter(x1, y1, x2, y2):
     for i in range(0, s2, 10):
-        purple_line = canvas.create_line(x + i, y, x1, y + i, fill="purple")
-        green_line = canvas.create_line(x, y + i, x + i, y1, fill="green")
+        purple_line = canvas.create_line(x1 + i, y1, x2, y1 + i, fill="purple")
+        green_line = canvas.create_line(x1, y1 + i, x1 + i, y2, fill="green")
 
 quarter(0, 0, s2, s2)
 quarter(0, s2, s2, size)
