@@ -18,7 +18,7 @@ import random
 class Pirate(object):
 
     def __init__(self):
-        self.intoxication = 0
+        self.consumed_rum = 0
         self.alive = True
         self.passed_out = False
     
@@ -27,19 +27,19 @@ class Pirate(object):
     
     def drink_some_rum(self):
         if self.alive:
-            self.intoxication += 1
+            self.consumed_rum += 1
         else:
             print("The pirate is dead.")
     
     def hows_it_going_mate(self):
         if self.alive:
-            if self.intoxication < 5:
+            if self.consumed_rum < 5:
                 print("Pour me anudder!")
                 self.drink_some_rum()
             else:
                 print("Arghh, I'ma Pirate. How d'ya d'ink its goin?")
                 self.pass_out()
-                self.intoxication = 0
+                self.consumed_rum = 0
         else:
             print("The pirate is dead.")
 
@@ -57,7 +57,5 @@ class Pirate(object):
                 self.pass_out()
                 pirate.pass_out()
     
-    def get_status(self):
-        print("The pirate is " + ("alive" if self.alive else "dead"))
-        print("The pirate is " + ("passed out" if self.passed_out else "conscious"))
-
+    def __str__(self):
+        return ("The pirate is " + ("alive" + " and " + ("passed out." if self.passed_out else "conscious.") if self.alive else "dead."))
