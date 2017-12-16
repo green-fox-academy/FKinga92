@@ -45,9 +45,9 @@ class Ship(object):
 
     def battle(self, other_ship):
         Ship.battle_winner = (self if isinstance(other_ship, Ship) and
-                  self.get_ship_score() > other_ship.get_ship_score() else other_ship)
+                              self.get_ship_score() > other_ship.get_ship_score() else other_ship)
         Ship.battle_loser = (self if isinstance(other_ship, Ship) and
-                 self.get_ship_score() < other_ship.get_ship_score() else other_ship)
+                             self.get_ship_score() < other_ship.get_ship_score() else other_ship)
         self.aftermath_of_battle(other_ship)
         return True if Ship.battle_winner == self else False
 
