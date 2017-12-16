@@ -67,12 +67,3 @@ class Ship(object):
                  self.captain.__str__() if isinstance(self.captain, Pirate) else "The ship doesn't have a captain.") +
                 "\n" + "There are {} alive pirates in the crew.".format(self.state_of_crew()))
 
-black_pearl = Ship()
-black_pearl.fill_ship()
-print(black_pearl)
-flying_dutchman = Ship()
-flying_dutchman.fill_ship()
-print(flying_dutchman)
-black_pearl.battle(flying_dutchman)
-print(black_pearl)
-print(flying_dutchman)
