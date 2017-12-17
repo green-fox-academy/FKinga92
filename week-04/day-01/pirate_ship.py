@@ -24,11 +24,8 @@ class Ship(object):
 
     def fill_ship(self):
         self.captain = Pirate()
-        i = 0
-        while i <= random.randint(1, 100):
-            crew_member = Pirate()
-            self.crew.append(crew_member)
-            i += 1
+        for i in range(random.randint(1, 100)):
+            self.crew.append(Pirate())
 
     def state_of_crew(self):
         number_of_alive_pirates = 0
@@ -40,25 +37,26 @@ class Ship(object):
     def get_ship_score(self):
         return self.state_of_crew() - self.captain.consumed_rum
 
-    battle_winner = None
-    battle_loser = None
-
     def battle(self, other_ship):
-        Ship.battle_winner = (self if isinstance(other_ship, Ship) and
-                              self.get_ship_score() > other_ship.get_ship_score() else other_ship)
-        Ship.battle_loser = (self if isinstance(other_ship, Ship) and
-                             self.get_ship_score() < other_ship.get_ship_score() else other_ship)
-        self.aftermath_of_battle(other_ship)
-        return True if Ship.battle_winner == self else False
+        if not isinstance(other_ship, Ship):
+            return
+        if self.get_ship_score() >= other_ship.get_ship_score():
+            winner = self
+            loser = other_ship
+        else:
+            winner = other_ship
+            loser = self
+        self.aftermath_of_battle(winner, loser)
+        return self == winner
 
-    def aftermath_of_battle(self, other_ship):
-        number_of_losses = random.randint(1, len(Ship.battle_loser.crew) - 1)
-        amount_of_party_rum = random.randint(1, len(Ship.battle_winner.crew) - 1)
+    def aftermath_of_battle(self, winner, loser):
+        number_of_losses = random.randint(1, loser.state_of_crew())
+        amount_of_party_rum = random.randint(1, winner.state_of_crew())
         for i in range(number_of_losses):
-            Ship.battle_loser.crew[i].die()
+            loser.crew[i].die()
         for i in range(amount_of_party_rum):
-            Ship.battle_winner.crew[i].drink_some_rum()
-            Ship.battle_winner.captain.drink_some_rum()
+            winner.crew[i].drink_some_rum()
+            winner.captain.drink_some_rum()
 
     def __str__(self):
         return ("The pirate ship:" + "\n" +
