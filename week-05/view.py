@@ -1,5 +1,5 @@
 from tkinter import *
-from map import *
+from area import *
 from character import *
 
 root = Tk()
@@ -10,13 +10,9 @@ class View(object):
     def __init__(self):
        self.floor = PhotoImage(file="floor.gif")
        self.wall = PhotoImage(file="wall.gif")
-       self.hero = PhotoImage(file="hero-down.gif")
-
-    # def draw_tile(self, tile):
-    #     if not isinstance(tile, Tile):
-    #         return
-    #     self.img = PhotoImage(file=tile.image)
-    #     canvas.create_image(tile.x, tile.y, image=self.img)
+       self.hero_image = PhotoImage(file="hero-down.gif")
+       self.hero = Hero(36, 36)
+       self.map = Map(36, 36)
     
     def draw_map(self, map):
         if not isinstance(map, Map):
@@ -31,14 +27,26 @@ class View(object):
                     canvas.create_image(x, y, image=self.wall)
     
     def draw_hero(self, hero):
-        canvas.create_image(hero.x, hero.y, image=self.hero)
+        canvas.create_image(hero.x, hero.y, image=self.hero_image)
+    
+    def on_key_press(self, e):
+        if e.keycode == 38:
+            self.hero.move_up()
+        elif e.keycode == 40:
+            self.hero.move_down()
+        elif e.keycode == 37:
+            self.hero.move_left()
+        elif e.keycode == 39:
+            self.hero.move_right()
+        self.draw_map(self.map)
+        self.draw_hero(Hero(self.hero.x, self.hero.y))
 
 
 view = View()
-map = Map(36, 36)
-the_hero = Hero(36, 36)
+canvas.bind("<KeyPress>", view.on_key_press)
 canvas.pack()
-view.draw_map(map)
-view.draw_hero(the_hero)
+canvas.focus_set()
+view.draw_map(view.map)
+view.draw_hero(view.hero)
 
 root.mainloop()
