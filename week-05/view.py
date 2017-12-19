@@ -16,19 +16,28 @@ class View(object):
        self.hero_image_right = PhotoImage(file="hero-right.gif")
        self.hero = Hero(36, 36)
        self.map = Map(36, 36)
+       self.map.fill_map()
     
+    # def draw_map(self, map):
+    #     if not isinstance(map, Map):
+    #         return
+    #     for i in range(len(map.map)):
+    #         for j in range(len(map.map[i])):
+    #             x = map.x + j * 72
+    #             y = map.y + i * 72
+    #             if map.map[i][j] == 0:
+    #                 canvas.create_image(x, y, image=self.floor)
+    #             else:
+    #                 canvas.create_image(x, y, image=self.wall)
     def draw_map(self, map):
         if not isinstance(map, Map):
             return
-        for i in range(len(map.map)):
-            for j in range(len(map.map[i])):
-                x = map.x + j * 72
-                y = map.y + i * 72
-                if map.map[i][j] == 0:
-                    canvas.create_image(x, y, image=self.floor)
-                else:
-                    canvas.create_image(x, y, image=self.wall)
-    
+        for tile in map.map_of_tiles:
+            if isinstance(tile, Floor):
+                canvas.create_image(tile.x, tile.y, image=self.floor)
+            else:
+                canvas.create_image(tile.x, tile.y, image=self.wall)
+
     def draw_hero_down(self, hero):
         canvas.create_image(hero.x, hero.y, image=self.hero_image_down)
 
