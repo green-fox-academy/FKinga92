@@ -4,8 +4,6 @@ class Tile(object):
         self.x = x
         self.y = y
 
-    def __str__(self):
-        return str(type(self)) + str(self.x) + " " + str(self.y)
 
 class Floor(Tile):
 
@@ -46,3 +44,8 @@ class Map(object):
                     self.map_of_tiles.append(Floor(x,y))
                 else:
                     self.map_of_tiles.append(Wall(x,y))
+
+    def get_tile_at_x_y(self, pos_x, pos_y):
+        for tile in self.map_of_tiles:
+            if tile.x == pos_x and tile.y == pos_y:
+                return tile

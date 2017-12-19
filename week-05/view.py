@@ -53,19 +53,19 @@ class View(object):
     def on_key_press(self, e):
         self.draw_map(self.map)
         if e.keycode == 38:
-            if self.hero.y > 36:
+            if self.hero.y > 36 and isinstance(self.map.get_tile_at_x_y(self.hero.x, self.hero.y - 72), Floor):
                 self.hero.move_up()
             self.draw_hero_up(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 40:
-            if self.hero.y < 684:
+            if self.hero.y < 684 and isinstance(self.map.get_tile_at_x_y(self.hero.x, self.hero.y + 72), Floor):
                 self.hero.move_down()
             self.draw_hero_down(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 37:
-            if self.hero.x > 36:
+            if self.hero.x > 36 and isinstance(self.map.get_tile_at_x_y(self.hero.x - 72, self.hero.y), Floor):
                 self.hero.move_left()
             self.draw_hero_left(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 39:
-            if self.hero.x < 684:
+            if self.hero.x < 684 and isinstance(self.map.get_tile_at_x_y(self.hero.x + 72, self.hero.y), Floor):
                 self.hero.move_right()
             self.draw_hero_right(Hero(self.hero.x, self.hero.y))
         
