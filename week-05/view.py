@@ -10,7 +10,10 @@ class View(object):
     def __init__(self):
        self.floor = PhotoImage(file="floor.gif")
        self.wall = PhotoImage(file="wall.gif")
-       self.hero_image = PhotoImage(file="hero-down.gif")
+       self.hero_image_down = PhotoImage(file="hero-down.gif")
+       self.hero_image_up = PhotoImage(file="hero-up.gif")
+       self.hero_image_left = PhotoImage(file="hero-left.gif")
+       self.hero_image_right = PhotoImage(file="hero-right.gif")
        self.hero = Hero(36, 36)
        self.map = Map(36, 36)
     
@@ -26,27 +29,39 @@ class View(object):
                 else:
                     canvas.create_image(x, y, image=self.wall)
     
-    def draw_hero(self, hero):
-        canvas.create_image(hero.x, hero.y, image=self.hero_image)
+    def draw_hero_down(self, hero):
+        canvas.create_image(hero.x, hero.y, image=self.hero_image_down)
+
+    def draw_hero_up(self, hero):
+        canvas.create_image(hero.x, hero.y, image=self.hero_image_up)
+
+    def draw_hero_left(self, hero):
+        canvas.create_image(hero.x, hero.y, image=self.hero_image_left)
+
+    def draw_hero_right(self, hero):
+        canvas.create_image(hero.x, hero.y, image=self.hero_image_right)
     
     def on_key_press(self, e):
+        self.draw_map(self.map)
         if e.keycode == 38:
             self.hero.move_up()
+            self.draw_hero_up(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 40:
             self.hero.move_down()
+            self.draw_hero_down(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 37:
             self.hero.move_left()
+            self.draw_hero_left(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 39:
             self.hero.move_right()
-        self.draw_map(self.map)
-        self.draw_hero(Hero(self.hero.x, self.hero.y))
-
+            self.draw_hero_right(Hero(self.hero.x, self.hero.y))
+        
 
 view = View()
 canvas.bind("<KeyPress>", view.on_key_press)
 canvas.pack()
 canvas.focus_set()
 view.draw_map(view.map)
-view.draw_hero(view.hero)
+view.draw_hero_down(view.hero)
 
 root.mainloop()
