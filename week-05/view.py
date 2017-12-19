@@ -44,16 +44,20 @@ class View(object):
     def on_key_press(self, e):
         self.draw_map(self.map)
         if e.keycode == 38:
-            self.hero.move_up()
+            if self.hero.y > 36:
+                self.hero.move_up()
             self.draw_hero_up(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 40:
-            self.hero.move_down()
+            if self.hero.y < 684:
+                self.hero.move_down()
             self.draw_hero_down(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 37:
-            self.hero.move_left()
+            if self.hero.x > 36:
+                self.hero.move_left()
             self.draw_hero_left(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 39:
-            self.hero.move_right()
+            if self.hero.x < 684:
+                self.hero.move_right()
             self.draw_hero_right(Hero(self.hero.x, self.hero.y))
         
 
