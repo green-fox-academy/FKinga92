@@ -25,6 +25,7 @@ class View(object):
        self.monsters = []
        self.boss_tile = None
        self.boss = None
+       self.movement_count = 0
     
     # def draw_map(self, map):
     #     if not isinstance(map, Map):
@@ -81,6 +82,32 @@ class View(object):
             boss_tile = self.map.get_random_floor()
         self.boss_tile = boss_tile
         self.boss = Monster(self.boss_tile.x, self.boss_tile.y)
+    
+    def move_monsters(self, movement_count):
+        if movement_count % 2 == 0 and movement_count > 0:
+            for monster in self.monsters:
+                direction_chance = random.randint(1, 4)
+                if direction_chance == 1 and monster.y > 36 and isinstance(self.map.get_tile_at_x_y(monster.x, monster.y - 72), Floor):
+                    monster.move_up()
+                elif direction_chance == 2 and monster.y < 684 and isinstance(self.map.get_tile_at_x_y(monster.x, monster.y + 72), Floor):
+                    monster.move_down()
+                elif direction_chance == 3 and monster.x > 36 and isinstance(self.map.get_tile_at_x_y(monster.x - 72, monster.y), Floor):
+                    monster.move_left()
+                elif direction_chance == 4 and monster.x < 684 and isinstance(self.map.get_tile_at_x_y(monster.x + 72, monster.y), Floor):
+                    monster.move_right()
+                    
+    def move_boss(self, movement_count):
+        if movement_count % 2 == 0 and movement_count > 0:
+            direction_chance = random.randint(1, 4)
+            if direction_chance == 1 and self.boss.y > 36 and isinstance(self.map.get_tile_at_x_y(self.boss.x, self.boss.y - 72), Floor):
+                self.boss.move_up()
+            elif direction_chance == 2 and self.boss.y < 684 and isinstance(self.map.get_tile_at_x_y(self.boss.x, self.boss.y + 72), Floor):
+                self.boss.move_down()
+            elif direction_chance == 3 and self.boss.x > 36 and isinstance(self.map.get_tile_at_x_y(self.boss.x - 72, self.boss.y), Floor):
+                self.boss.move_left()
+            elif direction_chance == 4 and self.boss.x < 684 and isinstance(self.map.get_tile_at_x_y(self.boss.x + 72, self.boss.y), Floor):
+                self.boss.move_right()
+
 
     def on_key_press(self, e):
         self.draw_map(self.map)
@@ -89,19 +116,26 @@ class View(object):
         if e.keycode == 38:
             if self.hero.y > 36 and isinstance(self.map.get_tile_at_x_y(self.hero.x, self.hero.y - 72), Floor):
                 self.hero.move_up()
+                self.movement_count += 1
             self.draw_hero_up(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 40:
             if self.hero.y < 684 and isinstance(self.map.get_tile_at_x_y(self.hero.x, self.hero.y + 72), Floor):
                 self.hero.move_down()
+                self.movement_count += 1
             self.draw_hero_down(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 37:
             if self.hero.x > 36 and isinstance(self.map.get_tile_at_x_y(self.hero.x - 72, self.hero.y), Floor):
                 self.hero.move_left()
+                self.movement_count += 1
             self.draw_hero_left(Hero(self.hero.x, self.hero.y))
         elif e.keycode == 39:
             if self.hero.x < 684 and isinstance(self.map.get_tile_at_x_y(self.hero.x + 72, self.hero.y), Floor):
                 self.hero.move_right()
+                self.movement_count += 1
             self.draw_hero_right(Hero(self.hero.x, self.hero.y))
+        self.move_monsters(self.movement_count)
+        self.move_boss(self.movement_count)
+        
         
 
 view = View()
