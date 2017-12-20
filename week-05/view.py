@@ -16,12 +16,15 @@ class View(object):
        self.hero_image_left = PhotoImage(file="hero-left.gif")
        self.hero_image_right = PhotoImage(file="hero-right.gif")
        self.monster_image = PhotoImage(file="skeleton.gif")
+       self.boss_image = PhotoImage(file="boss.gif")
        self.hero = Hero(36, 36)
        self.map = Map(36, 36)
        self.map.fill_map()
        self.monster_tile = None
        self.monster = None
        self.monsters = []
+       self.boss_tile = None
+       self.boss = None
     
     # def draw_map(self, map):
     #     if not isinstance(map, Map):
@@ -59,6 +62,9 @@ class View(object):
         for monster in self.monsters:
             canvas.create_image(monster.x, monster.y, image=self.monster_image)
     
+    def draw_boss(self):
+        canvas.create_image(self.boss.x, self.boss.y, image=self.boss_image)
+    
     #ezt majd át kell tenni game_logicba vagy characterbe(?)
     def create_monsters(self):
         for i in range(0, 3):
@@ -69,9 +75,17 @@ class View(object):
             self.monster = Monster(self.monster_tile.x, self.monster_tile.y)
             self.monsters.append(self.monster)
 
+    def create_boss(self):
+        boss_tile = self.map.get_random_floor()
+        while not isinstance(boss_tile, Floor):
+            boss_tile = self.map.get_random_floor()
+        self.boss_tile = boss_tile
+        self.boss = Monster(self.boss_tile.x, self.boss_tile.y)
+
     def on_key_press(self, e):
         self.draw_map(self.map)
         self.draw_monsters()
+        self.draw_boss()
         if e.keycode == 38:
             if self.hero.y > 36 and isinstance(self.map.get_tile_at_x_y(self.hero.x, self.hero.y - 72), Floor):
                 self.hero.move_up()
@@ -97,6 +111,8 @@ canvas.focus_set()
 view.draw_map(view.map)
 view.draw_hero_down(view.hero)
 view.create_monsters()
+view.create_boss()
 view.draw_monsters()
+view.draw_boss()
 
 root.mainloop()
