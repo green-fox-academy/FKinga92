@@ -17,26 +17,24 @@
 # The CandyShop should be represented as string in this format:
 # "Inventory: 3 candies, 2 lollipops, Income: 100, Sugar: 400gr"
 
-class Sweets(object):
+class Sweet(object):
 
-    def __init__(self):
+    def __init__(self, price = 0, needed_sugar_amount = 0):
         self.price = 0
         self.needed_sugar_amount = 0
 
     def raise_price(self, price_raise_rate):
         self.price *= (1 + price_raise_rate / 100)
 
-class Candy(Sweets):
+class Candy(Sweet):
 
     def __init__(self):
-        self.price = 20
-        self.needed_sugar_amount = 10
+        super().__init__(20, 10)
 
-class Lollipop(Sweets):
+class Lollipop(Sweet):
 
     def __init__(self):
-        self.price = 10
-        self.needed_sugar_amount = 5
+        super().__init__(10, 5)
 
 class CandyShop(object):
 
@@ -49,10 +47,10 @@ class CandyShop(object):
     def create_sweets(self, candy):
         if candy.lower() == "candy":
             self.candies.append(Candy())
-            self.sugar_storage -= 10
+            self.sugar_storage -= self.candies[-1].needed_sugar_amount
         elif candy.lower() == "lollipop":
             self.lollipops.append(Lollipop())
-            self.sugar_storage -= 5
+            self.sugar_storage -= self.lollipops[-1].needed_sugar_amount
         else:
             print("Unfortunately, we do not have the recipe for that.")
 
