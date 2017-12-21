@@ -8,7 +8,7 @@
 def unique_characters(string):
     list_of_unique_characters = []
     for char in string.replace(" ", ""):
-        if string.count(char) == 1:
+        if string.lower().count(char) == 1:
             list_of_unique_characters.append(char)
     return list_of_unique_characters
 

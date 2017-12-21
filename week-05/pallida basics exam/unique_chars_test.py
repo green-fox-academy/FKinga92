@@ -11,6 +11,9 @@ class TestUniqueCharacters(unittest.TestCase):
     
     def test_string_with_spaces(self):
         self.assertEqual(unique_characters("cat and dog"), ["c", "t", "n", "o", "g"])
+    
+    def test_string_with_uppercase_chars(self):
+        self.assertEqual(unique_characters("Marm"), ["a", "r"])
 
 if __name__ == '__main__':
     unittest.main()
