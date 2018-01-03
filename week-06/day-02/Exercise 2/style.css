@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.yellow {
+    margin: 50px auto;
+    background: yellow;
+    width: 800px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.purple {
+    background: purple;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+}
