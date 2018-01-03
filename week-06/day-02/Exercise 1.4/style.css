@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 50px auto;
+    width: 600px;
+    height: 700px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item {
+    width: 100%;
+}
+
+.green, .purple {
+    flex-grow: 1;
+}
+
+.green {
+    background: limegreen;
+}
+
+.yellow {
+    background: yellow;
+    flex-grow: 2;
+    order: 2;
+}
+
+.purple {
+    background: purple;
+    order: 1;
+}
