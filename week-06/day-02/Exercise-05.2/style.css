@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 25px;
+}
+
+.layout {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+header {
+    background: aqua;
+}
+
+header, footer {
+    flex: 1 0 100%;
+    height: 100px;
+}
+
+aside {
+    background: purple;
+    width: 22%;
+}
+
+.orange {
+    background: orange;
+}
+
+aside, main {
+    height: 550px;
+}
+
+main {
+    background: red;
+    width: 50%;
+    display: flex;
+    padding: 20px;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+article {
+    background: black;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+}
+
+footer {
+    background: blue;
+}
