@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(54, 50, 50);
+}
+
+.container {
+    margin-top: 100px;
+    height: 300px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+span, p {
+    display: inline-block;
+    vertical-align: top;
+}
+
+p {
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    visibility: hidden;
+}
+
+span {
+    width: 50px;
+    height: 50px;
+    background: rgb(36, 34, 34);
+    text-align: center;
+}
+
+#trash > i {
+    color: white;
+}
+
+#delete > i {
+    color: red;
+}
+
+#sure > i {
+    color: lightgreen;
+}
+
+.trash > p {
+    border: none;
+}
+
+.delete > p {
+    background: red;
+}
+
+.sure > p {
+    background: lightgreen;
+}
+
+span:hover + p {
+  visibility: visible;
+}
