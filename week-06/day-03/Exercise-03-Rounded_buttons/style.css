@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 600px;
+    margin: 0 auto;
+    padding: 50px 25px;
+    background: darkblue;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    width: 150px;
+    height: 65px;
+    border-radius: 5%;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    line-height: 65px;
+}
+
+.blue {
+    background: hsl(240, 60%, 50%);
+    box-shadow: 1px 4px hsl(240, 70%, 40%);
+}
+
+.blue:hover {
+    background: hsl(240, 60%, 60%);
+    box-shadow: 1px 4px hsl(240, 70%, 50%);
+}
+
+.blue:active {
+    background: hsl(240, 60%, 40%);
+    box-shadow: 1px 4px hsl(240, 70%, 30%);
+}
+
+.green {
+    background: hsl(120, 58%, 38%);
+    box-shadow: 1px 4px hsl(120, 68%, 28%);
+}
+
+.green:hover {
+    background: hsl(120, 58%, 48%);
+    box-shadow: 1px 4px hsl(120, 68%, 38%);
+}
+
+.green:active {
+    background: hsl(120, 58%, 28%);
+    box-shadow: 1px 4px hsl(120, 68%, 18%);
+}
+
+.red {
+    background: hsl(0, 60%, 50%);
+    box-shadow: 1px 4px hsl(0, 70%, 40%);
+}
+
+.red:hover {
+    background: hsl(0, 60%, 60%);
+    box-shadow: 1px 4px hsl(0, 70%, 50%);
+}
+
+.red:active {
+    background: hsl(0, 60%, 40%);
+    box-shadow: 1px 4px hsl(0, 70%, 30%);
+}
+
