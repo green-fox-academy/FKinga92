@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    background: purple;
+    padding: 10px;
+    width: 100%;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-gap: 10px;
+}
+
+p {
+    background: yellow;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    height: 200px;
+    line-height: 200px;
+    overflow: auto;
+}
+
+p:nth-child(2) {
+    background: limegreen;
+}
