@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: 870px;
+    background: purple;
+    height: 100px;
+    padding: 30px 60px;
+}
+
+a {
+    display: inline-block;
+    margin-right: 15px;
+    width: 100px;
+    height: 40px;
+    background: cyan;
+}
+
+.container {
+    display: grid;
+    width: 750px;
+    margin: 10px 60px;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: minmax(60px, auto);
+    grid-gap: 10px;
+}
+
+aside {
+    background: limegreen;
+}
+
+main {
+    background: yellow;
+}
+
+aside, main {
+    grid-row: span 9;
+}
+
+footer {
+    background: gray;
+    grid-column: span 2;
+}
