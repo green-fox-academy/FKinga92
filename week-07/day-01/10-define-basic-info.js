@@ -9,9 +9,9 @@
 let name = 'Kinga';
 let age = 25;
 let height = 1.68;
-let is_married = false;
+let isMarried = false;
 
 console.log(name);
 console.log(age);
 console.log(height);
-console.log(is_married);
+console.log(isMarried);
