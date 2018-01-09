@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #404040;
+    position: relative;
+    height: 100vh;
+}
+
+p {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 250px;
+    left: 550px;
+    border-radius: 5px;
+}
+
+p:first-child {
+    background: #fff;
+    transform: rotate(45deg);
+}
+
+p:nth-of-type(2) {
+    border: 5px solid orangered;
+}
+
+span {
+    position: absolute;
+    top: 330px;
+    left: 590px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: #404040;
+}
+
+p:nth-of-type(2):hover {
+    transform: rotate(45deg);
+}
+
+p:nth-of-type(2):hover + span {
+    color: orangered;
+}
