@@ -18,7 +18,11 @@ let matrix = [];
 for (let i = matrixSize - 1; i >= 0; i--) {
   let matrixRow = [];
   for (let j = 0; j  < matrixSize; j++) {
-    (j === i) ? matrixRow.push(1) : matrixRow.push(0);
+    if (j === i) {
+      matrixRow.push(1);
+    } else {
+      matrixRow.push(0);
+    }
   }
   matrix.push(matrixRow);
 }
