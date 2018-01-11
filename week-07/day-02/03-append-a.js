@@ -7,7 +7,7 @@
 let am = 'kuty';
 
 function appendA(stringToAppend) {
-  return (typeof stringToAppend === 'string') ? stringToAppend = stringToAppend + 'a' : stringToAppend;
+  return (typeof stringToAppend === 'string') ? stringToAppend + 'a' : stringToAppend;
 }
 
 console.log(appendA(am));
