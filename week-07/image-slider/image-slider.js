@@ -4,6 +4,10 @@ let arrowLeft = document.querySelectorAll('img')[0];
 let arrowRight = document.querySelector('.arrow-right').getElementsByTagName('img')[0];
 let current = 0;
 
+thumbnails.forEach(function(item, index) {
+  item.setAttribute('alt', document.querySelectorAll('img')[index + 1].getAttribute('alt'));
+});
+
 function reset() {
   images.forEach(function(item) {
     item.style.display = 'none';
