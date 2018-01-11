@@ -26,7 +26,7 @@ function getOwnedCandies(listToFilter) {
 function getSumOfAge(listToFilter) {
   let sumOfAge = 0;
   listToFilter.forEach(function(item) {
-    (item.candies < 5) ? sumOfAge = sumOfAge + item.age : sumOfAge;
+    sumOfAge = (item.candies < 5) ?  sumOfAge + item.age : sumOfAge;
   })
   console.log('The sum of the age of the students who have less than 5 candies is ' + sumOfAge + '.');
 }
