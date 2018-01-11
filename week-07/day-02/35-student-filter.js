@@ -13,7 +13,7 @@ let students = [
 function getNameOfStudents(listToFilter) {
   let listOfStudents = '';
   listToFilter.forEach(function(item) {
-    (item.candies > 4) ? listOfStudents = listOfStudents + item.name : listOfStudents;
+    listOfStudents = (item.candies > 4) ?  listOfStudents + item.name : listOfStudents;
   })
   console.log('The students who have more than 4 candies are: ' + listOfStudents + '.');
 }
