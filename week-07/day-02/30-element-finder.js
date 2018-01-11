@@ -4,4 +4,4 @@
 
 let numbers = [1, 2, 3, 4, 5, 6, 8];
 
-(numbers.indexOf(7) >= 0) ? console.log('Hoorray') : console.log('Noooooo');
+console.log((numbers.indexOf(7) >= 0) ? 'Hoorray' : 'Noooooo');
