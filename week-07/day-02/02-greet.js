@@ -8,7 +8,7 @@
 let al = 'Greenfox';
 
 function greet(name) {
-  (typeof name === 'string') ? console.log('Greetings, dear ' + name) : console.log('Greetings!');
+  console.log((typeof name === 'string') ? 'Greetings, dear ' + name : 'Greetings!');
 }
 
 greet(al);
