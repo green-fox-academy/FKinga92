@@ -1,4 +1,5 @@
 let images = document.querySelectorAll('.images');
+let thumbnails = document.querySelector('footer').querySelectorAll('img');
 let arrowLeft = document.querySelectorAll('img')[0];
 let arrowRight = document.querySelector('.arrow-right').getElementsByTagName('img')[0];
 let current = 0;
@@ -7,22 +8,44 @@ function reset() {
   images.forEach(function(item) {
     item.style.display = 'none';
   })
+  for (let i = 0; i < thumbnails.length; i++) {
+    deActivateThumbnail(i);
+  }
+}
+
+function activateThumbnail(index) {
+  thumbnails[index].classList.add('active');
+}
+
+function deActivateThumbnail(index) {
+  if (index === -1) {
+    index = images.length -1;
+  }
+  if (index === images.length) {
+    index = 0;
+  }
+  thumbnails[index].classList.remove('active');
 }
 
 function startSlide() {
   reset();
   images[0].style.display = 'block';
+  activateThumbnail(0);
 }
 
 function slideLeft() {
   reset();
   images[current - 1].style.display = 'block';
+  activateThumbnail(current - 1);
+  deActivateThumbnail(current);
   current--;
 }
 
 function slideRight() {
   reset();
   images[current + 1].style.display = 'block';
+  activateThumbnail(current + 1);
+  deActivateThumbnail(current);
   current++;
 }
 
