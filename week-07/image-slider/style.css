@@ -22,6 +22,9 @@ h1 {
   display: flex;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.9em;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 3px 5px 5px #919191, -3px 5px 5px #919191;
 }
 
 .images {
@@ -38,11 +41,11 @@ h1 {
   top: 350px;
   background-color: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 0.5);
-  text-indent: 15px;
 }
 
 p, h2 {
   padding: 5px;
+  margin-left: 15px;
 }
 
 h2 {
@@ -62,18 +65,18 @@ h2 {
 
 .arrow-left > img, .arrow-right > img {
   position: absolute;
-  top: 50%;
+  top: 46%;
   width: 50px;
   height: 50px;
 }
 
 .arrow-left > img{
   left: 0;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 
 .arrow-right > img{
   transform: rotate(180deg);
   right: 0;
-  margin-right: 5px;
+  margin-right: 15px;
 }
