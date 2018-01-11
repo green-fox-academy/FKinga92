@@ -77,4 +77,19 @@ for (let i = 0; i < thumbnails.length; i++) {
   });
 }
 
+window.addEventListener('keyup', function (event) {
+  if (event.keyCode === 37) {
+    if (current === 0) {
+      current = images.length;
+    }
+    slideLeft();
+  }
+  if (event.keyCode === 39) {
+    if (current === images.length - 1) {
+      current = -1;
+    }
+    slideRight();
+  }
+});
+
 startSlide();
