@@ -86,10 +86,6 @@ h2 {
   margin-right: 15px;
 }
 
-span {
-  display: none;
-}
-
 footer {
   display: flex;
   width: 1000px;
@@ -99,6 +95,20 @@ footer {
 
 .thumbnails {
   margin: 0 2px;
+  position: relative;
+}
+
+span {
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  padding: 10px 5px;
+  position: absolute;
+  font-size: 1em;
+  top: -75%;
+  left: -40%;
+  width: 150%;
+  display: none;
+  border-radius: 5px;
 }
 
 .thumbnails > img {
@@ -118,4 +128,8 @@ footer {
 .thumbnails > .active {
   border: 5px solid #4e4e4e;
   filter: grayscale(0);
+}
+
+.thumbnails > img:hover + span {
+  display: block;
 }
