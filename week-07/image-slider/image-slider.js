@@ -37,6 +37,7 @@ function selectSlide(index) {
   reset();
   images[index].style.display = 'block';
   activateThumbnail(index);
+  current = index;
 }
 
 function slideLeft() {
