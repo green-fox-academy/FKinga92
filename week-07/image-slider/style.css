@@ -124,13 +124,15 @@ span {
 
 .thumbnails > img:hover {
   cursor: pointer;
-  filter: grayscale(0);
-  transform: scale(1.1);
 }
 
 .thumbnails > .active {
   border: 5px solid #4e4e4e;
+}
+
+.thumbnails > img:hover, .thumbnails > .active {
   filter: grayscale(0);
+  transform: scale(1.1);
 }
 
 .thumbnails > img:hover + span {
