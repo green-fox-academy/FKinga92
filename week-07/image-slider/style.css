@@ -50,6 +50,10 @@ h2 {
   margin-top: 5px;
 }
 
+.christmas > p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .arrow-left, .arrow-right {
   width: 100px;
   position: relative;
