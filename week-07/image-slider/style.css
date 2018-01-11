@@ -8,10 +8,13 @@ body {
   background: linear-gradient(to right, rgba(34,34,34,0.85) 0%,rgba(245,249,240,0.88) 20%,rgba(255,255,255,0.97) 80%,rgba(34,34,34,1) 100%);
 }
 
+h1, main, footer {
+  font-family: 'Montserrat', sans-serif;
+}
+
 h1 {
   font-size: 50px;
   padding: 20px;
-  font-family: 'Montserrat', sans-serif;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7), 0 0 1em #222, 0 0 0.2em #fff;
 }
 
@@ -20,7 +23,6 @@ h1 {
   width: 1000px;
   height: 450px;
   display: flex;
-  font-family: 'Montserrat', sans-serif;
   font-size: 0.9em;
   background-color: #fff;
   border-radius: 5px;
@@ -103,7 +105,7 @@ span {
   color: white;
   padding: 10px 5px;
   position: absolute;
-  font-size: 1em;
+  font-size: 0.8em;
   top: -72%;
   left: -30%;
   min-width: 120px;
