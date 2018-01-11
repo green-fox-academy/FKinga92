@@ -7,7 +7,7 @@ let current = 0;
 function reset() {
   images.forEach(function(item) {
     item.style.display = 'none';
-  })
+  });
   for (let i = 0; i < thumbnails.length; i++) {
     deActivateThumbnail(i);
   }
@@ -33,6 +33,12 @@ function startSlide() {
   activateThumbnail(0);
 }
 
+function selectSlide(index) {
+  reset();
+  images[index].style.display = 'block';
+  activateThumbnail(index);
+}
+
 function slideLeft() {
   reset();
   images[current - 1].style.display = 'block';
@@ -54,14 +60,20 @@ arrowLeft.addEventListener('click', function() {
     current = images.length;
   }
   slideLeft();
-})
+});
 
 arrowRight.addEventListener('click', function() {
   if (current === images.length - 1) {
     current = -1;
   }
   slideRight();
-})
+});
 
+
+for (let i = 0; i < thumbnails.length; i++) {
+  thumbnails[i].addEventListener('click', function() {
+    selectSlide(i);
+  });
+}
 
 startSlide();
