@@ -20,11 +20,25 @@ function slideLeft() {
   current--;
 }
 
+function slideRight() {
+  reset();
+  images[current + 1].style.display = 'block';
+  current++;
+}
+
 arrowLeft.addEventListener('click', function() {
   if (current === 0) {
     current = images.length;
   }
   slideLeft();
 })
+
+arrowRight.addEventListener('click', function() {
+  if (current === images.length - 1) {
+    current = -1;
+  }
+  slideRight();
+})
+
 
 startSlide();
