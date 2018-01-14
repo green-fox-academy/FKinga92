@@ -13,6 +13,9 @@ const descriptionTexts = [
   'Praesent sed eros justo. Nulla augue mi, sagittis consequat congue sodales, consectetur eget tortor.',
   'Cras sed metus ut tellus suscipit tincidunt in at erat. Donec rhoncus, enim bibendum semper fermentum, sem massa dictum velit, vitae vestibulum nibh ligula a lacus.',
   'Mauris orci dui, semper in porta at, condimentum in eros. Duis a tempor tellus. Quisque eu lectus varius sapien dignissim laoreet.',
+  'In faucibus ligula urna, nec varius leo vulputate sed. Mauris pulvinar consectetur nibh lacinia laoreet. Morbi et ultrices massa.',
+  'Aenean sit amet ultrices nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+  'Nulla bibendum est magna, a mattis leo rhoncus sit amet. Mauris tempor libero vitae enim rhoncus posuere.'
 ];
 
 let main = document.querySelector('main');
@@ -116,7 +119,7 @@ function reset() {
     item.style.display = 'none';
   });
   for (let i = 0; i < thumbnails.length; i++) {
-    deActivateThumbnail(i);
+    deactivateThumbnail(i);
   }
 }
 
@@ -124,7 +127,7 @@ function activateThumbnail(index) {
   thumbnails[index].classList.add('active');
 }
 
-function deActivateThumbnail(index) {
+function deactivateThumbnail(index) {
   if (index === -1) {
     index = images.length -1;
   }
@@ -151,7 +154,7 @@ function slideLeft() {
   reset();
   images[current - 1].style.display = 'block';
   activateThumbnail(current - 1);
-  deActivateThumbnail(current);
+  deactivateThumbnail(current);
   current--;
 }
 
@@ -159,7 +162,7 @@ function slideRight() {
   reset();
   images[current + 1].style.display = 'block';
   activateThumbnail(current + 1);
-  deActivateThumbnail(current);
+  deactivateThumbnail(current);
   current++;
 }
 
@@ -182,7 +185,7 @@ for (let i = 0; i < thumbnails.length; i++) {
   thumbnails[i].addEventListener('click', function() {
     selectSlide(i);
   });
-}
+};
 
 window.addEventListener('keyup', function (event) {
   if (event.keyCode === 37) {
