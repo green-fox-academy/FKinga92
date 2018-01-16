@@ -33,20 +33,19 @@ Loris tardigratus;725;Orange`;
 
 // console.log(data.split('\n'));
 
-let result = [];
-data.split('\n').map(function(item) {
-  let newObject = {};
-  let values = item.split(';');
-  newObject.name = values[0];
-  newObject.id = Number(values[1]);
-  newObject.colorCode = values[2];
-  result.push(newObject);
-});
+let result = data
+  .split('\n')
+  .map(function(item) {
+    let values = item.split(';');
+    return {
+      name: values[0],
+      id: Number(values[1]),
+      colorCode: values[2]
+    };
+  })
+  .filter(function(item, index, array) {
+    return array.map(mapItem => mapItem['name']).indexOf(item['name']) === index;
+  });
 
-console.log(result.length);
-
-let uniques = result.filter(function(item, index, array) {
-  return array.map(mapItem => mapItem['name']).indexOf(item['name']) === index;
-});
-
-console.log(uniques.length);
+  console.log(result);
+  console.log(result.length);
