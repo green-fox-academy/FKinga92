@@ -41,14 +41,16 @@ const shuffler = {
   pick: function() {
     this.cash -= 1000;
     let randomPick = Math.floor(Math.random() * 2);
+    let receiver;
     if (randomPick === 0) {
       panama.cash += 1000;
-      console.log("Panama got 1000.")
+      receiver = 'Panama';
     }
     else {
       cyprus.cash += 1000;
-      console.log("Cyprus got 1000.")
+      receiver = 'Cyprus';
     }
+    console.log(`${receiver} got 1000`);
   }
 }
 
