@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+label, input, button {
+  display: block;
+  margin: 10px;
+}
+
+p {
+  margin: 10px;
+}
