@@ -1,4 +1,4 @@
-'use stric';
+'use strict';
 
 let body = document.querySelector('body');
 let button = document.querySelector('button');
