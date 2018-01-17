@@ -18,8 +18,6 @@ xhr.send();
 function createImage(index, data) {
   let image = document.createElement('img');
   image.src = data[index]['images']['original_still']['url'];
-  image.style.width = data[index]['images']['original_still']['width'];
-  image.style.height = data[index]['images']['original_still']['height'];
   myMain.appendChild(image);
   return image;
 }
