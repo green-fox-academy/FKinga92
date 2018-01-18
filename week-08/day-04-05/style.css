@@ -19,11 +19,23 @@ header {
   text-align: center;
 }
 
-h1 {
+h1, header > p {
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
+  position: relative;
+}
+
+h1 {
   letter-spacing: 1.2em;
-  line-height: 200px;
+  top: 44%;
+}
+
+header > p {
+  top: 60%;
+  font-weight: bold;
+  left: -2%;
+  letter-spacing: 0.1em;
+  font-size: 0.8em;
 }
 
 main, aside {
@@ -113,17 +125,16 @@ aside > section {
   padding: 15px;
 }
 
-aside > a {
+aside > a, button {
   display: block;
   background: #4AA3DF;
   color: #fff;
   text-align: center;
-  height: 30px;
   line-height: 30px;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 10px;
 }
 
@@ -146,4 +157,37 @@ aside > section > p {
 
 section > ul > li {
   padding: 5px 0;
+}
+
+.post-title, textarea, label, #url, button {
+  display: block;
+  margin: 10px;
+  width: 97%;
+  padding: 5px;
+}
+
+.post-title::before {
+  content: "*";
+  color: red;
+}
+
+.post-title, label, .post-title::before, button {
+  font-weight: bold;
+}
+
+label {
+  text-transform: uppercase;
+}
+
+button {
+  width: 50%;
+}
+
+#url {
+  height: 30px;
+}
+
+textarea, #url {
+  background: #EEE;
+  border: none;
 }
