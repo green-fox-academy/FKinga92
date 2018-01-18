@@ -68,6 +68,13 @@ main > div::after {
 
 .title {
   font-size: 1.5em;
+  /* white-space: nowrap;
+  overflow: hidden; */
+  word-break: break-all;
+}
+
+.title > a {
+  padding-right: 10px;
 }
 
 .title > span > a {
@@ -102,7 +109,7 @@ section ul {
 }
 
 aside > section {
-  background: #fff;
+  background: #F5F5F5;
   padding: 15px;
 }
 
@@ -121,6 +128,7 @@ aside > a {
 }
 
 h2 {
+  background: #FBFBFB;
   font-size: 1em;
   text-transform: uppercase;
   height: 30px;
@@ -133,6 +141,7 @@ h2 > a {
 
 aside > section > p {
   text-align: center;
+  background: #FBFBFB;
 }
 
 section > ul > li {
