@@ -7,9 +7,7 @@ function getResponse() {
   xhr.onreadystatechange = function() {
     if (xhr.DONE && xhr.status === 200) {
       let posts = JSON.parse(xhr.response).posts;
-      posts.forEach(function(post, index, posts) {
-        createPost(posts, index);
-      });
+      createPost(posts);
     }
   };
   xhr.open('GET', 'http://secure-reddit.herokuapp.com/simple/posts');
@@ -103,16 +101,18 @@ function createPostModificationLinks(contentDiv) {
   listElement2.appendChild(removeLink);
 }
 
-function createPost(posts, index) {
-  let containerDiv = createContainerDiv(posts, index);
-  let voteDiv = createVoteDiv(containerDiv);
-  createVoteDivContent(posts, index, voteDiv);
-  let contentDiv = createContentDiv(containerDiv);
-  let title = createTitleParagraph(contentDiv);
-  createTitleLink(posts, index, title);
-  createSpan(posts, index, title);
-  createSubmitInfo(posts, index, contentDiv);
-  createPostModificationLinks(contentDiv);
+function createPost(posts) {
+  posts.forEach(function(post, index, posts) {
+    let containerDiv = createContainerDiv(posts, index);
+    let voteDiv = createVoteDiv(containerDiv);
+    createVoteDivContent(posts, index, voteDiv);
+    let contentDiv = createContentDiv(containerDiv);
+    let title = createTitleParagraph(contentDiv);
+    createTitleLink(posts, index, title);
+    createSpan(posts, index, title);
+    createSubmitInfo(posts, index, contentDiv);
+    createPostModificationLinks(contentDiv);
+  });
 }
 
 window.addEventListener('load', (event) => {
