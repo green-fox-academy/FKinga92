@@ -4,14 +4,14 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   background: #EEE;
 }
 
 header {
   width: 100%;
   height: 200px;
-  background: url('https://wallpapertag.com/wallpaper/full/9/1/7/144793-popular-space-background-tumblr-1920x1200.jpg') no-repeat;
+  background: url("https://wallpapertag.com/wallpaper/full/9/1/7/144793-popular-space-background-tumblr-1920x1200.jpg") no-repeat;
   background-size: cover;
   position: relative;
   top: 0;
@@ -19,10 +19,52 @@ header {
   text-align: center;
 }
 
-header > h1 {
+h1 {
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 1.2em;
   line-height: 200px;
 }
 
+main {
+  width: 65%;
+  float: left;
+}
+
+aside {
+  width: 30%;
+  position: fixed;
+  right: 0;
+}
+
+main, aside {
+  padding: 10px;
+}
+
+main > div {
+  margin: 10px;
+  padding: 10px;
+}
+
+.vote {
+  width: 13%;
+}
+.content {
+  width: 85%;
+}
+
+.vote, .content {
+  display: inline-block;
+}
+
+.arrow-up {
+  background: url("upvote.png");
+}
+
+.arrow-down {
+  background: url("downvote.png");
+}
+
+.content li {
+  display: inline-block;  
+}
