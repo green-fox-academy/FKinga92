@@ -10,7 +10,8 @@ function inputToPostObject() {
   return {
     "title": postTitle,
     "url": postUrl,
-    "timestamp": Date.now()
+    "timestamp": Date.now(),
+    "owner": 'anonymous'
   }
 }
 
