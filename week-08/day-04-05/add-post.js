@@ -9,7 +9,8 @@ function inputToPostObject() {
   }
   return {
     "title": postTitle,
-    "url": postUrl
+    "url": postUrl,
+    "timestamp": Date.now()
   }
 }
 
