@@ -2,15 +2,18 @@
 
 let myMain = document.querySelector('main');
 
-function getResponse() {
+function getInitialResponse() {
   let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
-    if (xhr.DONE && xhr.status === 200) {
-      let posts = JSON.parse(xhr.response).posts;
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      let posts = (JSON.parse(xhr.response)).posts;
+      posts.splice(50);
       createPost(posts);
+      setUpVoteAction();
+      setDownVoteAction();
     }
   };
-  xhr.open('GET', 'http://secure-reddit.herokuapp.com/simple/posts');
+  xhr.open('GET', 'https://time-radish.glitch.me/posts');
   xhr.setRequestHeader('accept', 'application/json');
   xhr.send();
 }
@@ -69,7 +72,9 @@ function createSpan(posts, index, titleParagraph) {
   titleParagraph.appendChild(span);
 
   let spanLink = document.createElement('a');
-  spanLink.innerText = posts[index].url.replace('http://', '').replace('https://', '');
+  spanLink.innerText = (posts[index].url != null)
+    ? posts[index].url.replace('http://', '').replace('https://', '')
+    : '';
   spanLink.href = posts[index].url;
   spanLink.target = '_blank';
   span.appendChild(spanLink);
@@ -78,7 +83,10 @@ function createSpan(posts, index, titleParagraph) {
 function createSubmitInfo(posts, index, contentDiv) {
   let submitInfo = document.createElement('p');
   let minutes = Math.floor(((Date.now() - posts[index].timestamp) / 1000) / 60);
-  submitInfo.innerHTML = `submitted ${minutes} minutes ago by anonymous`;
+  let postOwner = (posts[index].owner != null)
+    ? posts[index].owner
+    : 'anonymous';
+  submitInfo.innerHTML = `submitted ${minutes} minutes ago by ${postOwner}`;
   contentDiv.appendChild(submitInfo);
 }
 
@@ -115,6 +123,41 @@ function createPost(posts) {
   });
 }
 
+function updateScore(button, direction) {
+  let postId = button.parentElement.parentElement.id;
+
+  let putRequest = new XMLHttpRequest();
+  putRequest.onreadystatechange = function() {
+    if (putRequest.readyState === XMLHttpRequest.DONE && putRequest.status === 200) {
+      let updatedPost = JSON.parse(putRequest.response);
+      document.getElementById(`${updatedPost.id}`)
+      .getElementsByClassName('vote')[0]
+      .querySelector('p').textContent = updatedPost.score;
+    }
+  };
+  putRequest.open('PUT', `https://time-radish.glitch.me/posts/${postId}/${direction}vote`);
+  putRequest.setRequestHeader('accept', 'application/json');
+  putRequest.send();
+}
+
+function setUpVoteAction() {
+  let buttons = document.querySelectorAll('div[class="arrow-up"]'); 
+  buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      updateScore(button, 'up');
+    });
+  });
+}
+
+function setDownVoteAction() {
+  let buttons = document.querySelectorAll('div[class="arrow-down"]'); 
+  buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      updateScore(button, 'down');
+    });
+  });
+}
+
 window.addEventListener('load', (event) => {
-  getResponse();
+  getInitialResponse();
 });

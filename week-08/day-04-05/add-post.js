@@ -18,11 +18,11 @@ function inputToPostObject() {
 function getResponse() {
   let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
-    if (xhr.DONE && xhr.status === 200) {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       document.location.href = 'main-page.html';
     }
   };
-  xhr.open('POST', 'http://secure-reddit.herokuapp.com/simple/posts');
+  xhr.open('POST', 'https://time-radish.glitch.me/posts');
   xhr.setRequestHeader('accept', 'application/json');
   xhr.setRequestHeader('content-type', 'application/json');
   xhr.send(JSON.stringify(inputToPostObject()));

@@ -80,9 +80,9 @@ main > div::after {
 
 .title {
   font-size: 1.5em;
-  /* white-space: nowrap;
-  overflow: hidden; */
-  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  /* word-break: break-all; */
 }
 
 .title > a {
@@ -95,12 +95,17 @@ main > div::after {
 
 main a {
   text-decoration: none;
+  color: #3f3f3f;
 }
 
 .arrow-up, .arrow-down {
   width: 15px;
   height: 14px;
   margin: 5px auto;
+}
+
+.arrow-up:hover, .arrow-down:hover {
+  cursor: pointer;
 }
 
 .arrow-up {
@@ -157,6 +162,7 @@ aside > section > p {
 
 section > ul > li {
   padding: 5px 0;
+  list-style-type: square;
 }
 
 .post-title, textarea, label, #url, button {
@@ -191,3 +197,4 @@ textarea, #url {
   background: #EEE;
   border: none;
 }
+
