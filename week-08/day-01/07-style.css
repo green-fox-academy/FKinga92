@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: tomato;
+}
+
+main, aside, section {
+  height: 100vh;
+}
+
+main {
+  margin: 30px auto;
+  max-width: 730px;
+  padding: 20px;
+  flex-flow: column wrap;
+}
+
+aside {
+  margin-top: 15px;
+  max-width: 320px;
+  float: left;
+}
+
+aside::after, section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+button {
+  min-width: 150px;
+  margin: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #3636ff;
+  border: 2px solid #3636ff;
+  cursor: pointer;
+}
+
+section {
+  float: right;
+}
+
+p {
+  border: black 2px solid;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 50px;
+  color: tomato;
+  
+}
+
+button[name="add"], button[name="remove"] {
+  position: relative;
+  top: 300px;
+}
+
+.active {
+  color: white;
+  background-color: green;
+}
