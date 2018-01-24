@@ -4,12 +4,16 @@
 
 'use strict';
 
+function getLetters(str) {
+  return str.replace(/ /g, '').toLowerCase().split('').sort().join('');
+}
+
 let isAnagram = function(str1, str2) {
   if (typeof str1 !== 'string' || typeof str2 !== 'string') {
     throw new Error('The parameters should be strings.')
   }
 
-  return str1.replace(/ /g, '').toLowerCase().split('').sort().join('') === str2.replace(/ /g, '').toLowerCase().split('').sort().join('');
+  return getLetters(str1) === getLetters(str2);
 };
 
 module.exports = isAnagram;
