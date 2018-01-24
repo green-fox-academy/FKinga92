@@ -32,6 +32,6 @@ test('get sum of invalid inputs', function(t) {
   let myClass2 = new mathClass();
 
   t.throws(myClass2.sum.bind(null, null));
-  t.throws(myClass2.sum.bind(null, ['alma']));
+  t.throws(myClass2.sum.bind(null, 'alma'));
   t.end();
 });
