@@ -18,6 +18,23 @@ app.get('/doubling', function (req, res) {
   }
 });
 
+app.get('/greeter', function (req, res) {
+  const input = req.query;
+  if (input.hasOwnProperty('name') === false) {
+    res.json({
+      error: 'Please provide a name!'
+    });
+  } else if (input.hasOwnProperty('title') === false) {
+    res.json({
+      error: 'Please provide a title!'
+    });
+  } else {
+    res.json({
+      welcome_message: `Oh, hi there ${input.name}, my dear ${input.title}!`
+    });
+  }
+});
+
 app.listen(8080, function () {
   console.log('the app is running');
 });
