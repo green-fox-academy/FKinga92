@@ -35,6 +35,13 @@ app.get('/greeter', function (req, res) {
   }
 });
 
+app.get('/appenda/:appenda', function (req, res) {
+  const appendable = req.params.appenda;
+  res.json({
+    appended: `${appendable}a`
+  });
+});
+
 app.listen(8080, function () {
   console.log('the app is running');
 });
