@@ -14,7 +14,7 @@ app.get('/doubling', function (req, res) {
   if (input === undefined) {
     res.json({error: 'Please provide an input!'});
   } else {
-    res.json({received: input, result: input * 2});
+    res.json({received: Number(input), result: input * 2});
   }
 });
 
