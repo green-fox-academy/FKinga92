@@ -31,7 +31,7 @@ function multiply(numbersToMultiply) {
 }
 
 function double(listToDouble) {
-  return listToDouble.map((number) => number * 2)
+  return listToDouble.map((number) => number * 2);
 }
 
 module.exports = {
