@@ -12,7 +12,7 @@ function ajax(method, url, callback) {
       callback(data);
     }
   };
-  xhr.open('GET', url);
+  xhr.open(method, url);
   xhr.setRequestHeader('accept', 'application/json');
   xhr.send();
 }
@@ -28,9 +28,8 @@ function listBookTitles(books) {
   });
 }
 
-function showFullBookDate(books) {
+function showFullBookData(books) {
   buttons[1].disabled = true;
-  console.log(books);
   let markup = '<table><thead><tr><th>Book Title</th> ' +
                '<th>Author name</th><th>Category</th> ' +
                '<th>Publisher\'s name</th><th>Price</th>' +
@@ -52,7 +51,7 @@ buttons[0].addEventListener('click', () => {
   ajax('GET', 'http://localhost:8080/titles', listBookTitles);
 });
 buttons[1].addEventListener('click', () => {
-  ajax('GET', 'http://localhost:8080/books', showFullBookDate);
+  ajax('GET', 'http://localhost:8080/books', showFullBookData);
 });
 
 
