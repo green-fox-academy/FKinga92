@@ -1,7 +1,8 @@
 'use strict';
 
-const button = document.querySelector('button');
-const body = document.querySelector('body');
+const buttons = document.querySelectorAll('button');
+const section = document.querySelector('section');
+const main = document.querySelector('main');
 
 function ajax(method, url, callback) {
   const xhr = new XMLHttpRequest;
@@ -17,9 +18,9 @@ function ajax(method, url, callback) {
 }
 
 function listBookTitles(books) {
-  button.disabled = true;
+  buttons[0].disabled = true;
   let list = document.createElement('ol');
-  body.appendChild(list);
+  section.appendChild(list);
   books.forEach(book => {
     let listElement = document.createElement('li');
     listElement.textContent = book.book_name;
@@ -27,8 +28,31 @@ function listBookTitles(books) {
   });
 }
 
-button.addEventListener('click', () => {
+function showFullBookDate(books) {
+  buttons[1].disabled = true;
+  console.log(books);
+  let markup = '<table><thead><tr><th>Book Title</th> ' +
+               '<th>Author name</th><th>Category</th> ' +
+               '<th>Publisher\'s name</th><th>Price</th>' +
+               '</tr></thead><tbody>';
+  books.forEach((book) => {
+    markup += `<tr>
+                <td>${book.book_name}</td>
+                <td>${book.aut_name}</td>
+                <td>${book.cate_descrip}</td>
+                <td>${book.pub_name}</td>
+                <td>${book.book_price}</td>
+               </tr>`;
+  });
+  markup += '</tbody></table>';
+  main.innerHTML = markup;
+}
+
+buttons[0].addEventListener('click', () => {
   ajax('GET', 'http://localhost:8080/titles', listBookTitles);
+});
+buttons[1].addEventListener('click', () => {
+  ajax('GET', 'http://localhost:8080/books', showFullBookDate);
 });
 
 
