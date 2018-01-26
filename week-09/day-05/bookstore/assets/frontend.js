@@ -18,11 +18,11 @@ function ajax(method, url, callback) {
 
 function listBookTitles(books) {
   button.disabled = true;
-  let list = document.createElement('ul');
+  let list = document.createElement('ol');
   body.appendChild(list);
   books.forEach(book => {
-    let listElement = document.createElement('li')
-    listElement.textContent = book.book_name
+    let listElement = document.createElement('li');
+    listElement.textContent = book.book_name;
     list.appendChild(listElement);
   });
 }
