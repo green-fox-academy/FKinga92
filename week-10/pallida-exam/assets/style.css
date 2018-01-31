@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: lightgray;
+}
+
+form {
+  margin: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+label, input, button {
+  margin: 10px;
+}
+
+input[name="lincence"] {
+  display: block;
+  height: 10px;
+  padding: 10px;
+}
+
+label:first-child, button {
+  font-weight: bold;
+}
+
+input[name="filterChoice"] {
+  margin-right: 0px;
+}
+
+button {
+  display: block;
+  height: 30px;
+  width: 150px;
+  text-transform: uppercase;
+}
+
+table {
+  padding: 10px;
+  margin: 10px;
+}
+
+thead, tbody {
+  padding: 10px;
+  text-align: center;
+}
+
+thead {
+  background-color: #d1d1b8;
+}
+
+tbody {
+  background-color: beige;
+}
+
+th {
+  font-size: 1.2em;
+}
+
+th, tr, td {
+  margin: 5px;
+  padding: 10px;
+}
+
+tr:nth-child(2n) {
+  background-color: white;
+}
+
+span {
+  margin: 25px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}

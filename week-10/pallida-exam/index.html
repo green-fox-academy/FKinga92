@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+    <title>Licence plates</title>
+  </head>
+  <body>
+    <form method="GET" action="/">
+      <label for="lincence">Enter a full or partial licence plate: </label>
+      <input type="text" id="lincence" name="lincence" maxlength="7">
+      <input type="radio" id="police" name="filterChoice" value="police">
+      <label for="police">Police cars only</label>
+      <input type="radio" id="diplomat" name="filterChoice" value="diplomat">
+      <label for="diplomat">Diplomats only</label>
+      <button type="submit">Query database</button>
+    </form>
+    <script src="./assets/frontend.js"></script>
+  </body>
+</html>
