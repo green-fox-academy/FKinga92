@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding: 10px;
+  width: 90%;
+  margin: 10px auto 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  margin-left: 60px;
+}
+
+p {
+  width: 60%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 0 3px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+table {
+  padding: 10px;
+}
+
+thead {
+  text-align: center;
+}
+
+th, td {
+  min-width: 100px;
+  padding: 0 5px;
+}
+
+tr:nth-child(2n) {
+  background-color: beige;
+}
+
+[data-status="ok"] {
+  background: green;
+}
+
+[data-status="error"] {
+  background: red;
+}
