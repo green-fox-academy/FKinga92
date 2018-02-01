@@ -20,7 +20,7 @@ function showTable(responseData) {
   clothes.forEach((clothingPiece) => {
     const tableRow = document.createElement('tr');
     tableBody.appendChild(tableRow);
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < clothsProperties.length; i++) {
       const tableData = document.createElement('td');
       tableData.textContent = clothingPiece[clothsProperties[i]];
       tableRow.appendChild(tableData);
