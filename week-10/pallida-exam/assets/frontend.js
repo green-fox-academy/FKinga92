@@ -31,7 +31,7 @@ function createTableWithHead() {
   table.appendChild(tableHead);
   table.appendChild(document.createElement('tbody'));
   let headerContents = ['Licence plate', 'Brand', 'Model', 'Color', 'Year'];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < headerContents.length; i++) {
     let header = document.createElement('th');
     header.textContent = headerContents[i];
     tableHead.appendChild(header);
@@ -48,7 +48,7 @@ function createTableContent(lincencePlates) {
   lincencePlates.data.forEach((car) => {
     const newTableRow = document.createElement('tr');
     document.querySelector('tbody').appendChild(newTableRow);
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < responseProperties.length; i++) {
       const newTableData = document.createElement('td');
       if (i === 1) {
         newTableData.textContent = `[${car[responseProperties[i]]}]`;

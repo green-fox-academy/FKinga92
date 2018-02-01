@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 const conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'password',
+  password: '',
   database: 'licence_plates'
 });
 
@@ -46,8 +46,8 @@ function getCarData(result) {
       licence: car.plate,
       brand: car.car_brand,
       model: car.car_model,
-      color: car.color,
-      year: car.year
+      year: car.year,
+      color: car.color
     });
   });
   return carData;
