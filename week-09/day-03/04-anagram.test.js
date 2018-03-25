@@ -9,6 +9,6 @@ test('check if two words are anagrams', function(t) {
 });
 
 test('test invalid inputs', function(t) {
-  t.throws(isAnagram.bind(null, [1, 'kutya']));
+  t.throws(function() { isAnagram(1, 'kutya') });
   t.end();
 });

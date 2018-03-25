@@ -12,7 +12,6 @@ let isAnagram = function(str1, str2) {
   if (typeof str1 !== 'string' || typeof str2 !== 'string') {
     throw new Error('The parameters should be strings.')
   }
-
   return getLetters(str1) === getLetters(str2);
 };
 
