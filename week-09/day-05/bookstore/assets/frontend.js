@@ -22,7 +22,7 @@ function listBookTitles(books) {
   buttons[0].disabled = true;
   let list = document.createElement('ol');
   section.appendChild(list);
-  books.forEach(book => {
+  books.forEach((book) => {
     let listElement = document.createElement('li');
     listElement.textContent = book.book_name;
     list.appendChild(listElement);
@@ -49,25 +49,18 @@ function showFullBookData(books) {
 }
 
 function getQuery() {
-  let urlWithQuerys = 'http://localhost:8080/books?';
-  let categoryFilter = document.getElementById('category').value;
-  if (categoryFilter !== '') {
-    urlWithQuerys += `&category=${categoryFilter}`;
-  }
-  let publisherFilter = document.getElementById('pub_name').value;
-  if (publisherFilter !== '') {
-    urlWithQuerys += `&publisher=${publisherFilter}`;
-  }
-  let priceLowerFilter = document.getElementById('plt').value;
-  if (priceLowerFilter !== '') {
-    urlWithQuerys += `&plt=${priceLowerFilter}`;
-  }
-  let priceGreaterFilter = document.getElementById('pgt').value;
-  if (priceGreaterFilter !== '') {
-    urlWithQuerys += `&pgt=${priceGreaterFilter}`;
-  }
-  urlWithQuerys = urlWithQuerys.replace('?&', '?');
-  return urlWithQuerys;
+  let form = document.querySelector('form');
+
+  return '/books?' + [
+    'category',
+    'publisher',
+    'plt',
+    'pgt'
+  ]
+  .map((fieldName) => [fieldName, form.elements.namedItem(fieldName).value])
+  .filter((nameValuePair) => nameValuePair[1] !== '')
+  .map((queryParameter) => queryParameter.join('='))
+  .join('&');
 }
 
 function showFilteredBookData(books) {
@@ -89,15 +82,12 @@ function showFilteredBookData(books) {
 }
 
 buttons[0].addEventListener('click', () => {
-  sendRequest('GET', 'http://localhost:8080/titles', listBookTitles);
+  sendRequest('GET', '/titles', listBookTitles);
 });
 buttons[1].addEventListener('click', () => {
-  sendRequest('GET', 'http://localhost:8080/books', showFullBookData);
+  sendRequest('GET', '/books', showFullBookData);
 });
 document.querySelector('form').addEventListener('submit', (event) => {
   event.preventDefault();
-  let url = getQuery();
-  sendRequest('GET', url, showFilteredBookData);
+  sendRequest('GET', getQuery(), showFilteredBookData);
 });
-
-

@@ -12,17 +12,17 @@
     </section>
     <button type="submit">Show all books with full data</button>
     <main></main>
-    <form>
+    <form method="POST">
       <div>
         <h2>Filters</h2>
         <label for="category">Category: </label>
-        <input type="text" id="category">
+        <input type="text" id="category" name="category">
         <label for="pub_name">Publisher's name: </label>
-        <input type="text" id="pub_name">
+        <input type="text" id="pub_name" name="publisher">
         <label for="plt">Price lower than: </label>
-        <input type="text" id="plt">
+        <input type="text" id="plt" name="plt">
         <label for="pgt">Price greater than: </label>
-        <input type="text" id="pgt">
+        <input type="text" id="pgt" name="pgt">
       </div>
       <div>
         <button type="submit">Submit</button>

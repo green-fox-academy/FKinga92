@@ -2,30 +2,31 @@
 
 const express = require('express');
 const mysql = require('mysql');
+const path = require('path');
 const app = express();
 
 app.use('/assets', express.static('./assets'));
-app.use(express.json());
-
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
 
 const conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'password',
+  password: '',
   database: 'bookstore'
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/index.html'));
 });
 
 app.get('/titles', (req, res) => {
   conn.query('SELECT book_name FROM book_mast;', (err, rows) => {
-    if(err) {
+    if (err) {
       console.log(err.toString());
-      res.status(500).send('Database error');
+      res.status(500).send('Internal error');
       return;
     }
-    res.send(rows);
+    res.status(200);
+    res.json(rows);
   });
 });
 
@@ -38,33 +39,26 @@ app.get('/books', (req, res) => {
                 'INNER JOIN newpublisher ON book_mast.pub_id = newpublisher.pub_id ';
   
   if (Object.keys(requestQuery).length > 0) {
-    myQuery += 'WHERE ';
-    if (requestQuery.hasOwnProperty('category')) {
-      myQuery += `AND cate_descrip LIKE '%${requestQuery.category}%'`;
-    }
-    if (requestQuery.hasOwnProperty('publisher')) {
-      myQuery += `AND pub_name LIKE '%${requestQuery.publisher}%'`;
-    }
-    if (requestQuery.hasOwnProperty('plt')) {
-      myQuery += `AND book_price < ${requestQuery.plt}`;
-    }
-    if (requestQuery.hasOwnProperty('pgt')) {
-      myQuery += `AND book_price > ${requestQuery.pgt}`;
-    }
-    myQuery = myQuery.replace('WHERE AND ', 'WHERE ');
-    myQuery += ';'
+    myQuery += 'WHERE ' + [
+      ['category', `cate_descrip LIKE "%${requestQuery.category}%"`],
+      ['publisher', `pub_name LIKE "%${requestQuery.publisher}%"`],
+      ['plt', `book_price < ${conn.escape(requestQuery.plt)}`],
+      ['pgt', `book_price > ${conn.escape(requestQuery.pgt)}`]
+    ]
+    .filter((propertyName) => requestQuery.hasOwnProperty(propertyName[0]))
+    .map((nameValuePair) => nameValuePair[1])
+    .join(' AND ') + ';';
   }
 
   conn.query(myQuery, (err, rows) => {
-    if(err) {
+    if (err) {
       console.log(err.toString());
-      res.status(500).send('Database error');
+      res.status(500).send('Internal error');
       return;
     }
-    res.send(rows);
-  })
+    res.status(200);
+    res.json(rows);
+  });
 });
 
-app.listen(8080, () => {
-  console.log('the app is listening.');
-});
+app.listen(8080, () => console.log('the app is listening.'));
