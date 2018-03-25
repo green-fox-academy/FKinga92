@@ -60,7 +60,7 @@ app.post('/posts', (req, res) => {
 
 app.put('/posts/:id/upvote', (req, res) => {
   let upvoteQuery = `UPDATE post SET score = score + 1 WHERE id = ${req.params.id};`;
-  conn.query(upvoteQuery, (err, rows) => {
+  conn.query(upvoteQuery, (err, result) => {
     if (err) {
       console.log(err.toString());
       res.status(500).send('Internal error');
@@ -80,7 +80,7 @@ app.put('/posts/:id/upvote', (req, res) => {
 
 app.put('/posts/:id/downvote', (req, res) => {
   let downvoteQuery = `UPDATE post SET score = score - 1 WHERE id = ${req.params.id};`;
-  conn.query(downvoteQuery, (err, rows) => {
+  conn.query(downvoteQuery, (err, result) => {
     if (err) {
       console.log(err.toString());
       res.status(500).send('Internal error');
